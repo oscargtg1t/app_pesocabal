@@ -104,7 +104,7 @@
 						<th style="padding-right: 35px;">PESO</th>
 						</tr>
 				<?php
-				$url = 'http://localhost:8012/appwebservice/pesajes.php';
+				$url = 'http://143.110.209.5/pesajes.php';
 				$pesajes = json_decode(file_get_contents($url));
 				foreach ($pesajes as $pesaje) {
 					echo '<tr>';
