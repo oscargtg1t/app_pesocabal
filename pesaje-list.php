@@ -110,7 +110,7 @@
 						<th style="padding-right: 35px;">TOLERANCIA</th>
 						</tr>
 				<?php
-				$url = 'http://localhost:8012/appwebservice/pesaje_total.php';
+				$url = 'http://143.110.209.5/pesaje_total.php';
 				$pesajes = json_decode(file_get_contents($url));
 				foreach ($pesajes as $pesaje) {	
 					echo '<tr>';
