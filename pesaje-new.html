@@ -148,7 +148,7 @@
 		if (cargamento !== "" && cantidad !== "" && peso !== "" && tol !== "") {
 			// Realizar la solicitud AJAX
 			$.ajax({
-				url: "http://localhost:8012/appwebservice/pesaje_total.php",
+				url: "http://143.110.209.5/pesaje_total.php",
 				type: "POST",
 				data: $("#formpt").serialize(),
 				success: function() {
