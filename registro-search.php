@@ -123,7 +123,7 @@
 				<form class="form-neon">
 				<?php
 							if (isset($_GET['id_cargamento'])) {
-							$url = 'http://localhost:8012/appwebservice/pesajes.php?id_cargamento='. urlencode($_GET['id_cargamento']);
+							$url = 'http://143.110.209.5/pesajes.php?id_cargamento='. urlencode($_GET['id_cargamento']);
 							$pesaje = json_decode(file_get_contents($url));
 							if ($pesaje !== null) {
 								//echo '<h2>Cargamento Encontrado</h2>';
