@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	<title>Agregar pesaje</title>
+
+	<!-- Normalize V8.0.1 -->
+	<link rel="stylesheet" href="./css/normalize.css">
+
+	<!-- Bootstrap V4.3 -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+
+	<!-- Bootstrap Material Design V4.0 -->
+	<link rel="stylesheet" href="./css/bootstrap-material-design.min.css">
+
+	<!-- Font Awesome V5.9.0 -->
+	<link rel="stylesheet" href="./css/all.css">
+
+	<!-- Sweet Alerts V8.13.0 CSS file -->
+	<link rel="stylesheet" href="./css/sweetalert2.min.css">
+
+	<!-- Sweet Alert V8.13.0 JS file-->
+	<script src="./js/sweetalert2.min.js" ></script>
+
+	<!-- jQuery Custom Content Scroller V3.1.5 -->
+	<link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css">
+	
+	<!-- General Styles -->
+	<link rel="stylesheet" href="./css/style.css">
+
+
+</head>
+<body>
+	
+	<!-- Main container -->
+	<main class="full-box main-container">
+		<!-- Nav lateral -->
+		<section class="full-box nav-lateral">
+			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
+			<div class="full-box nav-lateral-content">
+				<figure class="full-box nav-lateral-avatar">
+					<i class="far fa-times-circle show-nav-lateral"></i>
+					<img src="./assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
+					<figcaption class="roboto-medium text-center">
+						<br><small class="roboto-condensed-light">PESO CABAL</small>
+					</figcaption>
+				</figure>
+				<div class="full-box nav-lateral-bar"></div>
+				<nav class="full-box nav-lateral-menu">
+					<ul>
+						<li>
+							<a href="home.html"><i class="fab fa-dashcube fa-fw"></i> &nbsp; DASHBOARD</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<!-- Page content -->
+		<section class="full-box page-content">
+			<nav class="full-box navbar-info">
+				<a href="#" class="float-left show-nav-lateral">
+					<i class="fas fa-exchange-alt"></i>
+				</a>
+				<a href="#" class="btn-exit-system">
+					<i class="fas fa-power-off"></i>
+				</a>
+			</nav>
+
+			<!-- Page header -->
+			<div class="full-box page-header">
+				<h3 class="text-left">
+					<i class="fas fa-plus fa-fw"></i> &nbsp; REGISTRO DE PESAJES
+				</h3>
+			</div>
+
+			<div class="container-fluid">
+				<ul class="full-box list-unstyled page-nav-tabs">
+					<li>
+						<a class="active" href="registro-new.html"><i class="fas fa-plus fa-fw"></i> &nbsp; AGREGAR PESAJE</a>
+					</li>
+					<li>
+						<a href="registro-list.php"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; LISTA DE PESAJES</a>
+					</li>
+					<li>
+						<a href="registro-search.php"><i class="fas fa-search fa-fw"></i> &nbsp; BUSCAR</a>
+					</li>
+				</ul>	
+			</div>
+			
+			<!-- Content here-->
+			<div class="container-fluid">
+				<form id="fpesaje" method="POST" class="form-neon" autocomplete="off">
+					<fieldset>
+						<legend><i class="fas fa-user"></i> &nbsp; INGRESE LOS DATOS DEL PESAJE</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="form-group">
+										<label for="id_cargamento" class="bmd-label-floating">No. DE CARGAMENTO</label>
+										<input type="text"  class="form-control" name="id_cargamento" id="id_cargamento" maxlength="10" required>
+									</div>
+								
+									<div class="form-group">
+										<label for="no_parcialidad" class="bmd-label-floating">NO. DE PARCIALIDAD</label>
+										<input type="text"  class="form-control" name="no_parcialidad" id="no_parcialidad" maxlength="1" required>
+									</div>
+								
+								
+									<div class="form-group">
+										<label for="peso_parcialidad" class="bmd-label-floating">PESO</label>
+										<input type="text" class="form-control" name="peso_parcialidad" id="peso_parcialidad" maxlength="30" required>
+									</div>
+							</div>
+						</div>
+					</fieldset>
+					<br>
+					<p class="text-center" style="margin-top: 40px;">
+						<button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp; LIMPIAR</button>
+						&nbsp; &nbsp;
+						<button type="button" id="btpesaje" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; REGISTRAR</button>
+					</p>
+				</form>
+			</div>	
+
+		</section>
+	</main>
+	
+	
+	<!--=============================================
+	=            Include JavaScript files           =
+	==============================================-->
+
+	<script>
+		$("#btpesaje").click(function() {
+		// Obtener los valores de los campos del formulario
+		var cargamento = $("#id_cargamento").val();
+		var cantidad = $("#no_parcialidad").val();
+		var peso = $("#peso_parcialidad").val();
+		
+	
+		// Validar que todos los campos estén llenos
+		if (cargamento !== "" && cantidad !== "" && peso !== "") {
+			// Realizar la solicitud AJAX
+			Swal.fire({
+				title: "¡Registro exitoso!",
+				icon: "success",
+				text: "Pesaje Registrado"
+			});
+			$.ajax({
+				url: "http://localhost:8012/appwebservice/pesajes.php",
+				type: "POST",
+				data: $("#fpesaje").serialize(),
+
+			});
+			$("#fpesaje")[0].reset();
+		} else {
+			//  mensaje de error si algún campo está vacío
+			Swal.fire({
+				title: "Error",
+				icon: "error",
+				text: "Por favor, completa todos los campos."
+			});
+		}
+		});
+		</script>
+
+	<!-- jQuery V3.4.1 -->
+	<script src="./js/jquery-3.4.1.min.js" ></script>
+
+	<!-- popper -->
+	<script src="./js/popper.min.js" ></script>
+
+	<!-- Bootstrap V4.3 -->
+	<script src="./js/bootstrap.min.js" ></script>
+
+	<!-- jQuery Custom Content Scroller V3.1.5 -->
+	<script src="./js/jquery.mCustomScrollbar.concat.min.js" ></script>
+
+	<!-- Bootstrap Material Design V4.0 -->
+	<script src="./js/bootstrap-material-design.min.js" ></script>
+	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+
+	<script src="./js/main.js" ></script>
+</body>
+</html>

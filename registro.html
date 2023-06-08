@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Registro</title>
+
+	<!-- Normalize V8.0.1 -->
+	<link rel="stylesheet" href="./css/normalize.css">
+
+	<!-- Bootstrap V4.3 -->
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+
+	<!-- Bootstrap Material Design V4.0 -->
+	<link rel="stylesheet" href="./css/bootstrap-material-design.min.css">
+
+	<!-- Font Awesome V5.9.0 -->
+	<link rel="stylesheet" href="./css/all.css">
+
+	<!-- Sweet Alerts V8.13.0 CSS file -->
+	<link rel="stylesheet" href="./css/sweetalert2.min.css">
+
+	<!-- Sweet Alert V8.13.0 JS file-->
+	<script src="./js/sweetalert2.min.js" ></script>
+
+	<!-- jQuery Custom Content Scroller V3.1.5 -->
+	<link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css">
+	
+	<!-- General Styles -->
+	<link rel="stylesheet" href="./css/style.css">
+
+
+</head>
+<body>
+	
+	<!-- Main container -->
+	<main class="full-box main-container">
+		<!-- Nav lateral -->
+		
+		<!-- Page content -->
+		<section class="full-box page-center">
+			
+
+			<!-- Page header -->
+			<div class="full-box page-header">
+				<h3 class="text-left">
+					<i class="fas fa-plus fa-fw"></i> &nbsp; NUEVO AGRICULTOR
+				</h3>
+				
+			</div>
+			
+			<!-- Content -->
+			<div class="container-fluid">
+				<form action="" class="form-neon" autocomplete="off">
+					<fieldset>
+						<legend><i class="fas fa-user-lock"></i> &nbsp; INGRESE SUS DATOS</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="form-group">
+										<label for="id_usuario" class="bmd-label-floating">NO. DPI</label>
+										<input type="text" pattern="[a-zA-Z0-9]{1,35}" class="form-control" name="id_usuario" id="id_usuario" maxlength="20">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group">
+										<label for="usuario_usuario" class="bmd-label-floating">NOMBRE Y APELLIDO</label>
+										<input type="text" pattern="[a-zA-Z0-9]{1,35}" class="form-control" name="usuario_usuario" id="usuario_usuario" maxlength="50">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group">
+										<label for="usuario_email" class="bmd-label-floating">CORREO ELECTRONICO</label>
+										<input type="email" class="form-control" name="usuario_email" id="usuario_email" maxlength="50">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group">
+										<label for="usuario_clave_1" class="bmd-label-floating">CONTRASEÑA</label>
+										<input type="password" class="form-control" name="usuario_clave_1" id="usuario_clave_1" maxlength="30">
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<p class="text-center" style="margin-top: 40px;">
+						<a href="index.html" class="btn btn-raised btn-secondary btn-sm">INICIAR SESION</a>
+						&nbsp; &nbsp;
+						<button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; GUARDAR</button>
+					</p>
+				</form>
+			</div>
+			
+
+		</section>
+	</main>
+	
+	
+	<!--=============================================
+	=            Include JavaScript files           =
+	==============================================-->
+	<!-- jQuery V3.4.1 -->
+	<script src="./js/jquery-3.4.1.min.js" ></script>
+
+	<!-- popper -->
+	<script src="./js/popper.min.js" ></script>
+
+	<!-- Bootstrap V4.3 -->
+	<script src="./js/bootstrap.min.js" ></script>
+
+	<!-- jQuery Custom Content Scroller V3.1.5 -->
+	<script src="./js/jquery.mCustomScrollbar.concat.min.js" ></script>
+
+	<!-- Bootstrap Material Design V4.0 -->
+	<script src="./js/bootstrap-material-design.min.js" ></script>
+	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+
+	<script src="./js/main.js" ></script>
+</body>
+</html>
