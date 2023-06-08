@@ -110,7 +110,7 @@
 						<th style="padding-right: 50px;">MENSAJE</th>
 						</tr>
 				<?php
-				$url = 'http://localhost:8012/appwebservice/cuenta.php';
+				$url = 'http://143.110.209.5/cuenta.php';
 				$cuentas = json_decode(file_get_contents($url));
 				foreach ($cuentas as $cuenta) {	
 					echo '<tr>';
